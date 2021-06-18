@@ -1,4 +1,5 @@
 const employeesData = require('./data/employees')
+const companinesData = require('./data/companies')
 
 //2. write resolvers for your schemas
 const resolvers = {
@@ -9,7 +10,11 @@ const resolvers = {
         },
         employees: () => {
             return employeesData
+        },
+        companies: () => {
+            return companinesData
         }
+
     }
 }
 

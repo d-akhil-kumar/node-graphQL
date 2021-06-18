@@ -1,40 +1,11 @@
 const express = require('express')
 const app = express()
 
-const {ApolloServer, gql} = require('apollo-server-express')
-
-const employeesData = require('./data/employees')
+const {ApolloServer} = require('apollo-server-express')
 
 
-//1. define schemas here
-const typeDefs = gql`
-
-  type Employee {
-      id: ID!
-      firstName: String
-      lastName: String
-      jobLevel: Int
-  }
-
-  type Query {
-      hello : String,
-      randomNumber: Int,
-      employees: [Employee]
-  }
-`
-
-//2. write resolvers for your schemas
-const resolvers = {
-    Query : {
-        hello: () => { return 'hello graphQL world'},
-        randomNumber: () => {
-            return Math.floor(Math.random() * 10) + 1
-        },
-        employees: () => {
-            return employeesData
-        }
-    }
-}
+const typeDefs = require('./schema')
+const resolvers = require('./resolver')
 
 
 //3. Initialize the ApolloExpressServer

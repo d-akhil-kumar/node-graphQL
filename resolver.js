@@ -13,6 +13,10 @@ const resolvers = {
         },
         companies: () => {
             return companinesData
+        },
+        employeeById: (parent, args, context, info) => {
+            const emp = employeesData.find((d) => d.id === args.id)
+            return emp
         }
 
     }

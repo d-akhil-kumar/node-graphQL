@@ -23,6 +23,7 @@ const typeDefs = gql`
       randomNumber: Int
       employees: [Employee]
       companies: [Company]
+      employeeById (id: ID!) : Employee
   }
 `
 

@@ -7,14 +7,18 @@ const {ApolloServer, gql} = require('apollo-server-express')
 //1. define schemas here
 const typeDefs = gql`  
   type Query {
-      hello : String
+      hello : String,
+      randomNumber: Int
   }
 `
 
 //2. write resolvers for your schemas
 const resolvers = {
     Query : {
-        hello: () => { return 'hello graphQL world'}
+        hello: () => { return 'hello graphQL world'},
+        randomNumber: () => {
+            return Math.floor(Math.random() * 10) + 1
+        }
     }
 }
 

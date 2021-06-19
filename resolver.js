@@ -18,7 +18,11 @@ const resolvers = {
             const emp = employeesData.find((d) => d.id === args.id)
             return emp
         }
-
+    Employee: {
+        fullName: (parent, args, context, info) => {
+            return parent.firstName + ' ' + parent.lastName
+        }
+    },
     }
 }
 

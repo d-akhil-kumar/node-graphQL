@@ -16,6 +16,7 @@ const typeDefs = gql`
       jobLevel: Int
       companyId: String
       company: Company
+      fullName: String
   }
 
   type Query {
